@@ -1,21 +1,21 @@
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
+import LoginScreen from "./Screens/Auth/LoginScreen/LoginScreen";
 import { useFonts } from "expo-font";
-import RegistrationScreen from "./Screens/RegistrationScreen/RegistrationScreen";
+// import RegistrationScreen from "./Screens/Auth/RegistrationScreen/RegistrationScreen";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
-    "Roboto-Bold": require("./assets/roboto/Roboto-Bold.ttf"),
-    "Roboto-Regular": require("./assets/roboto/Roboto-Regular.ttf"),
-    "Roboto-Thin": require("./assets/roboto/Roboto-Thin.ttf"),
+    "Roboto-Bold": require("./assets/fonts/Roboto-Bold.ttf"),
+    "Roboto-Medium": require("./assets/fonts/Roboto-Medium.ttf"),
+    "Roboto-Regular": require("./assets/fonts/Roboto-Regular.ttf"),
   });
 
   if (!fontsLoaded) {
     return null;
   }
-
   return (
-    <View style={styles.container}>
-      <LoginScreen />
+    <View>
+      <LoginScreen style={styles.container} />
       {/* <RegistrationScreen /> */}
     </View>
   );
