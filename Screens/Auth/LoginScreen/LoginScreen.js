@@ -27,7 +27,7 @@ export default function LoginScreen() {
           </View>
           {/* <>
             <View>
-              <Btn text="Войти" />
+              <Btn text="Увійти" />
             </View>
 
             <Text style={s.text}>
