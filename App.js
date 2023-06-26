@@ -5,9 +5,9 @@ import LoginScreen from "./Screens/Auth/LoginScreen/LoginScreen";
 
 export default function App() {
   return (
-    <View>
+    <>
       <LoginScreen />
       {/* <RegistrationScreen /> */}
-    </View>
+    </>
   );
 }
