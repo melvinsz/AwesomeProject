@@ -8,10 +8,10 @@ export default function LoginScreen() {
   return (
     <KeyboardContainer>
       <View style={styles.container}>
-        <ImageBackground source={require("../../../image/background.jpg")} style={styles.bg}>
-          <View style={styles.inner}>
-            <Text style={commonStyle.title}>Увійти</Text>
-            <View style={s.inputWrapper}>
+        <ImageBackground style={styles.bg} source={require("../../../image/background.jpg")}>
+          <View style={[styles.inner, { paddingBottom: 144 }]}>
+            <Text style={[commonStyle.title, { marginBottom: 32 }]}>Увійти</Text>
+            <View style={[s.inputWrapper, { marginBottom: 16 }]}>
               <TextInput
                 style={s.input}
                 autoComplete="email"
@@ -21,7 +21,7 @@ export default function LoginScreen() {
                 value=""
               />
             </View>
-            <View style={s.inputWrapper}>
+            <View style={[s.inputWrapper, { marginBottom: 43 }]}>
               <View style={{ flex: 4 }}>
                 <TextInput style={s.input} placeholder="Пароль" value="" />
               </View>
@@ -54,10 +54,14 @@ const styles = StyleSheet.create({
   bg: {
     flex: 1,
     resizeMode: "cover",
+    justifyContent: "flex-end",
   },
   inner: {
-    flex: 1,
-    justifyContent: "flex-end",
-    padding: 16,
+    paddingTop: 32,
+    paddingHorizontal: 16,
+    paddingBottom: 111,
+    backgroundColor: "#ffffff",
+    borderTopLeftRadius: 25,
+    borderTopRightRadius: 25,
   },
 });
