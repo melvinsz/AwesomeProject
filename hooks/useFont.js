@@ -13,7 +13,6 @@ export const useFont = () => {
           [fontFamily.roboto500]: require("../assets/fonts/Roboto-Medium.ttf"),
           [fontFamily.roboto700]: require("../assets/fonts/Roboto-Bold.ttf"),
           [fontFamily.roboto400]: require("../assets/fonts/Roboto-Regular.ttf"),
-          // [fontFamily.inter500]: require("../assets/fonts/Inter-Medium.ttf"),
         });
       } catch (e) {
         console.warn(e);
