@@ -1,25 +1,22 @@
-import { useState } from "react";
 import { ImageBackground, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
-import Toast from "react-native-toast-message";
-
-import { authStyles as s } from "../authStyles";
-import { commonStyle } from "../../../styles/commonStyle";
+import { useState } from "react";
 import Btn from "../../../Components/Button";
+import { authStyles as s } from "../authStyles";
 import { useKeyboardShow } from "../../../hooks/useKeyboardShow";
+import { commonStyle } from "../../../styles/commonStyle";
 import KeyboardContainer from "../../../Components/KeyboardContainer";
 
 const initValues = {
   email: "",
   password: "",
-  // email: "test@gmail.com",
-  // password: "test123",
 };
+
 const initFocus = { email: false, password: false };
 
 export default function LoginScreen() {
-  const [values, setValues] = useState(initValues);
   const { isShowKeyboard, setIsShowKeyboard } = useKeyboardShow();
   const [isShowPassword, setIsShowPassword] = useState(false);
+  const [values, setValues] = useState(initValues);
   const [hasFocus, setHasFocus] = useState(initFocus);
 
   const onChangeText = (value, name) => {
@@ -36,14 +33,13 @@ export default function LoginScreen() {
   };
 
   const onPressSubmitBtn = () => {
-    if (values.email === "" || values.password === "") {
-      Toast.show({
-        type: "error",
-        text1: "Form error:",
-        text2: "Email та Password повинні бути заповнені.",
-      });
+    const { email, password } = values;
+    if (email === "" || password === "") {
+      alert("Email та Password повинні бути заповнені.");
       return;
     }
+    console.log("Email:", email);
+    console.log("Password:", password);
     setValues(initValues);
   };
 
@@ -52,7 +48,7 @@ export default function LoginScreen() {
       <View style={styles.container}>
         <ImageBackground style={styles.bg} source={require("../../../image/background.jpg")}>
           <View style={[styles.inner, { paddingBottom: isShowKeyboard ? 32 : 144 }]}>
-            <Text style={[commonStyle.title, { marginBottom: 32 }]}>Увійти</Text>
+            <Text style={[commonStyle.title]}>Увійти</Text>
             <View style={[s.inputWrapper, hasFocus.email && s.inputWrapperFocus, { marginBottom: 16 }]}>
               <TextInput
                 style={s.input}
