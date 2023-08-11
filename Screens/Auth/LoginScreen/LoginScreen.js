@@ -13,7 +13,7 @@ const initValues = {
 
 const initFocus = { email: false, password: false };
 
-export default function LoginScreen() {
+export default function LoginScreen({ navigation }) {
   const { isShowKeyboard, setIsShowKeyboard } = useKeyboardShow();
   const [isShowPassword, setIsShowPassword] = useState(false);
   const [values, setValues] = useState(initValues);
@@ -87,7 +87,7 @@ export default function LoginScreen() {
                 </View>
 
                 <Text style={s.text}>
-                  Немає акаунта? <Text>Зареєструватись</Text>
+                  Немає акаунта? <Text onPress={() => navigation.navigate("registration")}>Зареєструватись</Text>
                 </Text>
               </>
             )}

@@ -15,7 +15,7 @@ const initValues = {
 
 const initFocus = { email: false, password: false, nickname: false };
 
-export default function RegistrationScreen() {
+export default function RegistrationScreen({ navigation }) {
   const { isShowKeyboard, setIsShowKeyboard } = useKeyboardShow();
   const [isShowPassword, setIsShowPassword] = useState(false);
   const [values, setValues] = useState(initValues);
@@ -114,7 +114,7 @@ export default function RegistrationScreen() {
               </View>
 
               <Text style={s.text}>
-                Вже є акаунт? <Text>Увійти</Text>
+                Вже є акаунт? <Text onPress={() => navigation.navigate("login")}>Увійти</Text>
               </Text>
             </>
           )}
