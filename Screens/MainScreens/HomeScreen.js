@@ -34,6 +34,12 @@ const HomeScreen = () => {
     </TouchableOpacity>
   );
 
+  const LogOutButton = () => (
+    <TouchableOpacity onPress={() => navigation.navigate("login")}>
+      <Image source={require("../../assets/log-out.png")} style={{ width: 24, height: 24 }} />
+    </TouchableOpacity>
+  );
+
   return (
     <MainTab.Navigator
       initialRouteName="Posts"
@@ -47,8 +53,12 @@ const HomeScreen = () => {
         name="Posts"
         component={PostsScreen}
         options={{
+          headerTitle: "Публікації",
+          headerTitleAlign: "center",
           tabBarIcon: () => <Image source={require("../../assets/grid.png")} style={{ width: 24, height: 24 }} />,
-          headerShown: false,
+          headerLeftContainerStyle: { paddingHorizontal: 16 },
+          headerRightContainerStyle: { paddingHorizontal: 16 },
+          headerRight: LogOutButton,
         }}
       />
       <MainTab.Screen
@@ -67,7 +77,13 @@ const HomeScreen = () => {
       <MainTab.Screen
         name="Profile"
         component={ProfileScreen}
-        options={{ tabBarIcon: () => <Image source={require("../../assets/user.png")} style={{ width: 24, height: 24 }} /> }}
+        options={{
+          headerTitleAlign: "center",
+          tabBarIcon: () => <Image source={require("../../assets/user.png")} style={{ width: 24, height: 24 }} />,
+          headerLeftContainerStyle: { paddingHorizontal: 16 },
+          headerRightContainerStyle: { paddingHorizontal: 16 },
+          headerRight: LogOutButton,
+        }}
       />
     </MainTab.Navigator>
   );

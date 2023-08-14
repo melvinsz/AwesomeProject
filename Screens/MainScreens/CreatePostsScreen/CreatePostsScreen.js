@@ -12,19 +12,13 @@ import {
   TextInput,
   SafeAreaView,
 } from "react-native";
-import { Camera } from "expo-camera";
-
-import { useNavigation } from "@react-navigation/native";
 
 const CreatePostsScreen = () => {
-  const navigation = useNavigation();
-
   const [photo, setPhoto] = useState(null);
   const [isFocused, setIsFocused] = useState(false);
   const [name, setName] = useState("");
   const [locality, setLocality] = useState("");
-  const [latitude, setLatitude] = useState(null);
-  const [longitude, setLongitude] = useState(null);
+
   const [isKeyboard, setIsKeyboard] = useState(false);
 
   const KeyboardHide = () => {
@@ -40,17 +34,6 @@ const CreatePostsScreen = () => {
     setIsFocused(false);
   };
 
-  const onPublic = () => {
-    if (photo) {
-      navigation.navigate("DefaultScreen", { photo, name, locality, latitude, longitude });
-      setName("");
-      setLocality("");
-      setLatitude(null);
-      setLongitude(null);
-      setPhoto(null);
-    }
-  };
-
   return (
     <TouchableWithoutFeedback onPress={KeyboardHide}>
       <KeyboardAvoidingView behavior={Platform.OS == "ios" ? "padding" : "height"}>
@@ -62,7 +45,7 @@ const CreatePostsScreen = () => {
               </TouchableOpacity>
             </View>
           </View>
-          <Text style={styles.toggleText}>{photo ? "Редагувати фото" : "Завантажте фото"}</Text>
+          <Text style={styles.toggleText}>Завантажте фото</Text>
           <SafeAreaView style={styles.form}>
             <TextInput
               style={[styles.input, styles.inputContainer, isFocused && styles.inputFocused]}
@@ -85,11 +68,7 @@ const CreatePostsScreen = () => {
                 placeholderTextColor="#BDBDBD"
               />
             </View>
-            <TouchableOpacity
-              style={photo ? styles.btn : { ...styles.btn, backgroundColor: "#F6F6F6" }}
-              activeOpacity={0.8}
-              onPress={onPublic}
-            >
+            <TouchableOpacity style={photo ? styles.btn : { ...styles.btn, backgroundColor: "#F6F6F6" }}>
               <Text style={photo ? styles.btnTitle : { ...styles.btnTitle, color: "#BDBDBD" }}>Опублікувати</Text>
             </TouchableOpacity>
             <TouchableOpacity

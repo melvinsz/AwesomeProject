@@ -21,9 +21,15 @@ export default function PostsScreen() {
               <Text style={st.userCardEmail}>Email</Text>
             </View>
           </View>
-
-          <View>
-            <Text>Posts</Text>
+          <View
+            style={{
+              height: 100,
+              backgroundColor: "#ffffff",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Text>У вас ще не має постів</Text>
           </View>
         </View>
       </ScrollView>

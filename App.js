@@ -7,7 +7,6 @@ import HomeScreen from "./Screens/MainScreens/HomeScreen";
 
 export default function App() {
   const AuthStack = createStackNavigator();
-  const OtherStack = createStackNavigator();
 
   return (
     <NavigationContainer>
