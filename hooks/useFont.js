@@ -10,9 +10,9 @@ export const useFont = () => {
     async function prepare() {
       try {
         await Font.loadAsync({
+          [fontFamily.roboto400]: require("../assets/fonts/Roboto-Regular.ttf"),
           [fontFamily.roboto500]: require("../assets/fonts/Roboto-Medium.ttf"),
           [fontFamily.roboto700]: require("../assets/fonts/Roboto-Bold.ttf"),
-          [fontFamily.roboto400]: require("../assets/fonts/Roboto-Regular.ttf"),
         });
       } catch (e) {
         console.warn(e);

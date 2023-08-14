@@ -51,6 +51,7 @@ export default function RegistrationScreen({ navigation }) {
     console.log("Email:", email);
     console.log("Password:", password);
     setValues(initValues);
+    navigation.navigate("HomeScreen");
   };
 
   return (

@@ -41,11 +41,12 @@ export default function LoginScreen({ navigation }) {
     console.log("Email:", email);
     console.log("Password:", password);
     setValues(initValues);
+    navigation.navigate("HomeScreen");
   };
 
   return (
     <KeyboardContainer>
-      <View style={styles.container}>
+      <View style={{ flex: 1 }}>
         <ImageBackground style={styles.bg} source={require("../../../image/background.jpg")}>
           <View style={[styles.inner, { paddingBottom: isShowKeyboard ? 32 : 144 }]}>
             <Text style={[commonStyle.title]}>Увійти</Text>
@@ -99,9 +100,6 @@ export default function LoginScreen({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
   bg: {
     flex: 1,
     resizeMode: "cover",
@@ -110,7 +108,7 @@ const styles = StyleSheet.create({
   inner: {
     paddingTop: 32,
     paddingHorizontal: 16,
-    paddingBottom: 111,
+    paddingBottom: 144,
     backgroundColor: "#ffffff",
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
