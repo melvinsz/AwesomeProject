@@ -2,30 +2,22 @@ import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
 import AddIcon from "./svg/AddIcon";
 import DeleteIcon from "./svg/DeleteIcon";
 
-export default function Avatar({ avatarImg, setAvatarImg }) {
-  const addImage = () => {};
-
-  const deleteImage = () => {};
+export default function Avatar({ isEmpty, onClickBtn }) {
+  const onPressBtn = () => {
+    onClickBtn(!isEmpty);
+  };
 
   return (
-    <View style={style.container}>
-      {avatarImg ? (
-        <Image style={style.img} source={{ uri: avatarImg }} />
-      ) : (
-        <TouchableOpacity style={style.btn} onPress={addImage}>
-          <AddIcon />
-        </TouchableOpacity>
-      )}
-      {avatarImg && (
-        <TouchableOpacity style={style.deleteBtn} onPress={deleteImage}>
-          <DeleteIcon />
-        </TouchableOpacity>
-      )}
+    <View style={st.container}>
+      {!isEmpty && <Image style={st.img} source={require("../assets/images/avatar.png")} />}
+      <TouchableOpacity style={st.btn} onPress={onPressBtn}>
+        {isEmpty ? <AddIcon /> : <DeleteIcon />}
+      </TouchableOpacity>
     </View>
   );
 }
 
-const style = StyleSheet.create({
+const st = StyleSheet.create({
   container: {
     position: "relative",
     width: 120,
@@ -34,6 +26,7 @@ const style = StyleSheet.create({
     borderRadius: 16,
   },
   img: {
+    // position: 'relative',
     width: "100%",
     height: "100%",
     borderRadius: 16,
