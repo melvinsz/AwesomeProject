@@ -1,7 +1,7 @@
 import { Camera } from "expo-camera";
 import { useRef } from "react";
 import { Button, Image, StyleSheet, Text, View } from "react-native";
-import CameraBtn from "../../components/CameraBtn";
+import CameraBtn from "../components/CameraBtn";
 
 export default function CameraComponent({ photoUri, setPhotoUri }) {
   const [permission, requestPermission] = Camera.useCameraPermissions();
@@ -45,8 +45,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: "100%",
-    borderWidth: 1,
-    borderColor: "red",
   },
   camera: {
     flex: 1,
@@ -64,8 +62,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     width: "100%",
     backgroundColor: "transparent",
-    borderWidth: 1,
-    borderColor: "yellow",
   },
   button: {
     flex: 1,
