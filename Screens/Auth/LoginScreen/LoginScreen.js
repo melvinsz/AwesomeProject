@@ -67,7 +67,7 @@ export default function LoginScreen({ setIsAuth, navigation }) {
                   console.log(values);
                   setIsAuth(true);
                 }}
-                text="Войти"
+                text="Увійти"
               />
             </View>
 

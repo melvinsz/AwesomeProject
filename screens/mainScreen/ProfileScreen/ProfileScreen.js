@@ -1,15 +1,16 @@
 import { FlatList, ImageBackground, SafeAreaView, Text, TouchableOpacity, View } from "react-native";
 import { style as s } from "./ProfileScreen.style";
 import Avatar from "../../../components/Avatar";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import LogOutIcon from "../../../components/svg/LogOutIcon";
 import { commonStyle } from "../../../styles/commonStyle";
-import { postList } from "../../../data/postList";
+import { postsCtx } from "../../../context/PostsCtx";
 import PostCard from "../../../components/PostCard/PostCard";
 
 const Empty = ({ height, ...another }) => <View style={{ backgroundColor: "#ffffff", height }} {...another} />;
 
 export default function ProfileScreen({ setIsAuth }) {
+  const { posts } = useContext(postsCtx);
   const [isEmptyAvatar, setIsEmptyAvatar] = useState(true);
 
   return (
@@ -27,7 +28,7 @@ export default function ProfileScreen({ setIsAuth }) {
           }}
         >
           <FlatList
-            data={postList}
+            data={posts}
             ListHeaderComponent={
               <View style={s.inner}>
                 <View style={s.avatarWrapper}>
@@ -49,9 +50,11 @@ export default function ProfileScreen({ setIsAuth }) {
                 <PostCard
                   title={item.title}
                   likeCount={item.likeCount}
-                  messageCount={item.messageCount}
                   imgUrl={item.imgUrl}
+                  imgUri={item.imgUri}
                   location={item.location}
+                  locationData={item.locationData}
+                  comments={item.comments}
                 />
               </View>
             )}

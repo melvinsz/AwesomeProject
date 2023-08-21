@@ -1,14 +1,13 @@
 import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
 import { fontFamily } from "../../../variables/fontFamily";
 import PostCard from "../../../components/PostCard/PostCard";
-import data from "../../../data";
-import { useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
+import { postsCtx } from "../../../context/PostsCtx";
+
 import uuid from "react-native-uuid";
 
-const { postList } = data;
-
 export default function PostsScreen({ route }) {
-  const [posts, setPosts] = useState(postList);
+  const { posts, setPosts } = useContext(postsCtx);
 
   useEffect(() => {
     if (!route.params) return;
@@ -25,7 +24,7 @@ export default function PostsScreen({ route }) {
       comments: [],
     };
     setPosts((p) => [newPost, ...p]);
-  }, [route.params]);
+  }, [route.params, setPosts]);
 
   return (
     <ScrollView style={{ flex: 1 }}>
@@ -50,11 +49,11 @@ export default function PostsScreen({ route }) {
               <PostCard
                 title={it.title}
                 likeCount={it.likeCount}
-                messageCount={it.messageCount}
                 imgUrl={it.imgUrl}
                 imgUri={it.imgUri}
                 location={it.location}
                 locationData={it.locationData}
+                comments={it.comments}
               />
             </View>
           ))}
