@@ -58,7 +58,6 @@ export default function PostsScreen({ route }) {
               />
             </View>
           ))}
-          {/*<View style={{ height: 50 }} />*/}
         </View>
       </View>
     </ScrollView>

@@ -4,12 +4,8 @@ import MapPinIcon from "../svg/MapPinIcon";
 import MessageCircleIcon from "../svg/MessageCircleIcon";
 import ThumbsUpIcon from "../svg/ThumbsUpIcon";
 import { useNavigation } from "@react-navigation/native";
-// import posts from '../../assets/images/posts'
-
-// console.log(posts)
 
 export default function PostCard({ messageCount, likeCount, title, location, locationData, imgUri, imgUrl }) {
-  // const source = `../../assets/images/posts/${imgUrl}`
   const navigation = useNavigation();
   return (
     <View style={s.container}>

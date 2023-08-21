@@ -10,7 +10,6 @@ export const getPosts = (setIsAuth) => ({
         activeOpacity={0.7}
         onPress={() => {
           setIsAuth(false);
-          // console.log(props);
         }}
         style={{
           flex: 1,

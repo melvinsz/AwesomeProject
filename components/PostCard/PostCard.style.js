@@ -24,12 +24,9 @@ export const s = StyleSheet.create({
   },
   sentenceWrapper: {
     flexDirection: "row",
-    // justifyContent: 'space-between',
-    // alignItems: 'center',
   },
   sentence: {
     flexDirection: "row",
-    // justifyContent: 'space-between',
     alignItems: "center",
   },
   sentenceText: {

@@ -34,15 +34,12 @@ export const style = StyleSheet.create({
     color: "#BDBDBD",
   },
   cameraBtnWrapper: {
-    // TODO need opacity control, for example 0.7
     position: "absolute",
     zIndex: 2,
   },
   inputWrapper: {
     flexDirection: "row",
     alignItems: "center",
-    // borderColor: 'red',
-    // borderWidth: 1,
     borderBottomColor: "#E8E8E8",
     borderBottomWidth: 1,
   },

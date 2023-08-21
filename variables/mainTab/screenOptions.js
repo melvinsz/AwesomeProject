@@ -19,7 +19,7 @@ export const screenOptions = {
   tabBarStyle: {
     height: 83,
 
-    paddingHorizontal: 81, // TODO universal for any screen width
+    paddingHorizontal: 81,
 
     backgroundColor: "#FFFFFF",
     borderTopWidth: 1,

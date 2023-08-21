@@ -1,12 +1,5 @@
 import { StyleSheet } from "react-native";
 
-// font-family: 'Roboto';
-// font-style: normal;
-// font-weight: 400;
-// font-size: 16px;
-// line-height: 19px;
-// color: #212121;
-
 export const authStyles = StyleSheet.create({
   input: {
     padding: 16,

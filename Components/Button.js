@@ -16,7 +16,6 @@ export default function Btn({ onPress, text, disabled }) {
 
 const s = StyleSheet.create({
   btn: {
-    // flex: 1,
     paddingVertical: 16,
     paddingHorizontal: 32,
     backgroundColor: colors.active,
@@ -28,13 +27,11 @@ const s = StyleSheet.create({
     backgroundColor: "#F6F6F6",
   },
   text: {
-    // flex: 1,
     fontFamily: "Roboto-Regular",
     fontSize: 16,
     lineHeight: 19,
     alignItems: "center",
     color: "#ffffff",
-    // justifyContent: 'center',
   },
   textDisabled: {
     color: "#BDBDBD",

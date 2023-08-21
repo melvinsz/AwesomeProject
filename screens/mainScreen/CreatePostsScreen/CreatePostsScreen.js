@@ -69,7 +69,7 @@ export default function CreatePostsScreen({ imgUrl, navigation }) {
       <View style={[s.inputWrapper, { marginBottom: 16 }]}>
         <TextInput
           style={s.input}
-          placeholder="Назва..." // TODO make roboto 400
+          placeholder="Назва..."
           placeholderTextColor="#BDBDBD"
           value={values.title}
           onChangeText={(v) => onChangeText(v, "title")}
@@ -85,11 +85,7 @@ export default function CreatePostsScreen({ imgUrl, navigation }) {
           onChangeText={(v) => onChangeText(v, "place")}
         />
       </View>
-      <Btn
-        onPress={sendPost}
-        text="Опублікувати"
-        // disabled
-      />
+      <Btn onPress={sendPost} text="Опублікувати" />
       <TouchableOpacity style={{ marginTop: "auto", alignSelf: "center" }} activeOpacity={0.7} onPress={onPressReset}>
         <TrashIcon />
       </TouchableOpacity>

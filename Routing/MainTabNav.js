@@ -8,27 +8,13 @@ export default function MainTabNav({ setIsAuth }) {
   const MainTab = createBottomTabNavigator();
 
   return (
-    <MainTab.Navigator
-      initialRouteName="posts"
-      // screenOptions={mainTabs.screenOptions}
-      screenOptions={mainTab.screenOptions}
-    >
+    <MainTab.Navigator initialRouteName="posts" screenOptions={mainTab.screenOptions}>
       <MainTab.Screen name="posts" component={PostsScreen} options={mainTab.options.getPosts(setIsAuth)} />
 
       <MainTab.Screen name="create" options={({ navigation }) => mainTab.options.getPostCreation(navigation)}>
-        {(props) => (
-          <CreatePostsScreen
-            {...props}
-            imgUrl={require("../assets/images/posts/img01.jpg")}
-            // imgUrl={false}
-          />
-        )}
+        {(props) => <CreatePostsScreen {...props} imgUrl={require("../assets/images/posts/img01.jpg")} />}
       </MainTab.Screen>
-      <MainTab.Screen
-        name="profile"
-        // component={ProfileScreen}
-        options={mainTab.options.profile}
-      >
+      <MainTab.Screen name="profile" options={mainTab.options.profile}>
         {() => <ProfileScreen setIsAuth={setIsAuth} />}
       </MainTab.Screen>
     </MainTab.Navigator>
