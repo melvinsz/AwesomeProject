@@ -42,14 +42,14 @@ export default function RegistrationScreen({ navigation }) {
   };
 
   const onPressSubmitBtn = () => {
-    // if (avatarImg === "") {
-    //   Toast.show({
-    //     type: "error",
-    //     text1: "Avatar error:",
-    //     text2: "Avatar повинен бути заповнений",
-    //   });
-    //   return;
-    // }
+    if (avatarImg === "") {
+      Toast.show({
+        type: "error",
+        text1: "Avatar error:",
+        text2: "Avatar повинен бути заповнений",
+      });
+      return;
+    }
     if (values.email === "" || values.password === "" || values.nickname === "") {
       Toast.show({
         type: "error",

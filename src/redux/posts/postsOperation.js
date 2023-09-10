@@ -98,8 +98,6 @@ const addCommentByPostID = (postId, commentData) => async (dispatch, getState) =
       userAvatar: userAvatar,
     };
 
-    console.log("comment::", comment);
-
     const docRef = doc(db, "posts", postId);
 
     await addDoc(collection(docRef, "comments"), { ...comment });
@@ -122,7 +120,6 @@ const getAllCommentsByPostId = (postId) => async (dispatch) => {
       date: dateBeautify(doc.data().date),
       dateForSort: doc.data().date,
     }));
-    console.log("payload", payload);
 
     dispatch(postsAction.updateCommentsToPost(payload));
   } catch (e) {
