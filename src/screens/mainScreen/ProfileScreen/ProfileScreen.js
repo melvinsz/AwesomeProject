@@ -49,7 +49,11 @@ export default function ProfileScreen({ setIsAuth }) {
                     </View>
                   </View>
 
-                  <TouchableOpacity activeOpacity={0.7} onPress={dispatch(authOperations.authLogout())} style={s.exitBtn}>
+                  <TouchableOpacity
+                    activeOpacity={0.7}
+                    onPress={() => dispatch(authOperations.authLogout())}
+                    style={s.exitBtn}
+                  >
                     <LogOutIcon />
                   </TouchableOpacity>
 

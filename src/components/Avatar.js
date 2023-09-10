@@ -1,4 +1,4 @@
-import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
+import { Image, ImageBackground, StyleSheet, TouchableOpacity, View } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import AddIcon from "./svg/AddIcon";
 import DeleteIcon from "./svg/DeleteIcon";
@@ -35,12 +35,12 @@ export default function Avatar({ avatarImg, setAvatarImg }) {
   };
 
   return (
-    <View style={st.container}>
+    <ImageBackground style={st.container} source={require("../assets/images/avatar.jpg")}>
       {avatarImg && <Image style={st.img} source={{ uri: avatarImg }} />}
       <TouchableOpacity style={st.btn} onPress={addImage}>
         {!avatarImg ? <AddIcon /> : <DeleteIcon />}
       </TouchableOpacity>
-    </View>
+    </ImageBackground>
   );
 }
 
@@ -49,7 +49,6 @@ const st = StyleSheet.create({
     position: "relative",
     width: 120,
     height: 120,
-    backgroundColor: "#F6F6F6",
     borderRadius: 16,
   },
   img: {
