@@ -3,8 +3,8 @@ import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { storage } from "../firebase/config";
 
 export const firebaseStore = {
-  avatar: "userAvatar/avatar",
-  post: "postImage/post",
+  avatar: "userAvatar",
+  post: "postImage",
 };
 
 export default async function uploadPhotoToServer(image, firebaseStore) {
@@ -20,6 +20,6 @@ export default async function uploadPhotoToServer(image, firebaseStore) {
     const postImageUrl = await getDownloadURL(storageRef);
     return postImageUrl;
   } catch (error) {
-    console.log("uploadPhotoToServer::", error.message);
+    console.log("uploadPhotoToServer:", error.message);
   }
 }

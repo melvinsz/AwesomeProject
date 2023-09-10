@@ -11,7 +11,6 @@ import CommentsScreen from "./screens/otherScreens/CommentsScreen/CommentsScreen
 import MainTabNav from "./Routing/MainTabNav";
 import { fontFamily } from "./variables/fontFamily";
 import LeftNavArrow from "./components/LeftNavArrow";
-import PostsCtx, { postsCtx } from "./context/PostsCtx";
 import { useSelector } from "react-redux";
 
 export default function SrcApp() {
@@ -22,27 +21,25 @@ export default function SrcApp() {
 
   return (
     <Provider store={store}>
-      <PostsCtx value={postsCtx}>
-        <NavigationContainer>
-          {!currentUser && (
-            <AuthStack.Navigator screenOptions={{ headerShown: false }}>
-              <AuthStack.Screen name="login">{(props) => <LoginScreen {...props} />}</AuthStack.Screen>
+      <NavigationContainer>
+        {!currentUser && (
+          <AuthStack.Navigator screenOptions={{ headerShown: false }}>
+            <AuthStack.Screen name="login">{(props) => <LoginScreen {...props} />}</AuthStack.Screen>
 
-              <AuthStack.Screen name="registration">{(props) => <RegistrationScreen {...props} />}</AuthStack.Screen>
-            </AuthStack.Navigator>
-          )}
+            <AuthStack.Screen name="registration">{(props) => <RegistrationScreen {...props} />}</AuthStack.Screen>
+          </AuthStack.Navigator>
+        )}
 
-          {currentUser && (
-            <OtherStack.Navigator screenOptions={mainOptions}>
-              <OtherStack.Screen name="home" options={{ headerShown: false }}>
-                {(props) => <MainTabNav {...props} />}
-              </OtherStack.Screen>
-              <OtherStack.Screen name="map" component={MapScreen} options={{ title: "Мапа" }} />
-              <OtherStack.Screen name="comments" component={CommentsScreen} options={{ title: "Коментарі" }} />
-            </OtherStack.Navigator>
-          )}
-        </NavigationContainer>
-      </PostsCtx>
+        {currentUser && (
+          <OtherStack.Navigator screenOptions={mainOptions}>
+            <OtherStack.Screen name="home" options={{ headerShown: false }}>
+              {(props) => <MainTabNav {...props} />}
+            </OtherStack.Screen>
+            <OtherStack.Screen name="map" component={MapScreen} options={{ title: "Мапа" }} />
+            <OtherStack.Screen name="comments" component={CommentsScreen} options={{ title: "Коментарі" }} />
+          </OtherStack.Navigator>
+        )}
+      </NavigationContainer>
       <Toast />
     </Provider>
   );
